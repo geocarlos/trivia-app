@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import "bootstrap";
 
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background-color: #E3E3E3;
+  background-image: linear-gradient(#EFEFEF, #9F9F9F);;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h2 {
   font-weight: 600;
+}
+
+$buttonBgColor: #303030;
+$buttonTxtColor: #efefef;
+.btn-primary {
+  @include button-variant($buttonBgColor, darken($buttonBgColor, 7.5%), $buttonTxtColor, lighten($buttonBgColor,5%), lighten($buttonBgColor, 10%), lighten($buttonTxtColor, 10%));
 }
