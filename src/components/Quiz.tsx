@@ -22,8 +22,8 @@ function Quiz() {
 
     useEffect(() => {
         if (questionIndexFromUrl !== null) {
-            dispatch({type: ActionTypes.SET_CURRENT_QUESTION, payload: questionIndexFromUrl});
-        } 
+            dispatch({ type: ActionTypes.SET_CURRENT_QUESTION, payload: questionIndexFromUrl });
+        }
     }, [dispatch, questionIndexFromUrl]);
 
     const processUserAnswer = (answer: boolean) => {
@@ -45,7 +45,10 @@ function Quiz() {
     return (
         <div className={classes.Quiz}>
             <h2>{currentQuestion.category}</h2>
-            <p dangerouslySetInnerHTML={{__html: sanitize(currentQuestion.question)}} />
+            <div className={classes.question}>
+                <p dangerouslySetInnerHTML={{ __html: sanitize(currentQuestion.question) }} />
+                <p>{currentQuestionIndex + 1} / {quizItems.length}</p>
+            </div>
             <div className={classes.userAnswer}>
                 <Button onClick={() => processUserAnswer(true)} variant="primary">True</Button>
                 <Button onClick={() => processUserAnswer(false)} variant="secondary">False</Button>
