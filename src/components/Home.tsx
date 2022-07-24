@@ -1,17 +1,18 @@
 import { useCallback, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import { ActionTypes, AppContext } from '../context/AppContext';
+import { AppContext } from '../context/AppContext';
 import classes from './Home.module.scss';
+import api from '../api';
 
 function Home() {
 
     const { dispatch } = useContext(AppContext);
     const navigate = useNavigate();
 
-    const beginQuiz = useCallback(() => {
-        dispatch({type: ActionTypes.FETCH_QUESTIONS});
-        navigate('/quiz');
+    const beginQuiz = useCallback(async () => {
+        await api.fetchQuestions(dispatch);
+        navigate('/quiz/0');
     }, [dispatch])
 
     return (

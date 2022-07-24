@@ -1,3 +1,22 @@
 .Quiz {
     display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+    p {
+        width: 100%;
+        font-size: 1.5rem;
+    }   
+}
+
+.userAnswer {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-around;
 }
