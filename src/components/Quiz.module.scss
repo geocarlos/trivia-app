@@ -8,10 +8,13 @@
 
     .question {
         display: flex;
+        padding: .25rem;
         align-self: center;
+        min-height: 30vh;
         flex-wrap: wrap;
-        align-items: center;
+        justify-content: center;
         width: 100%;
+        background-image: linear-gradient(to bottom right, #efefef, #aaa);
     }
 
     p {

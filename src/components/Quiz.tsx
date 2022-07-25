@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import sanitize from 'sanitize-html';
 import { ActionTypes, AppContext } from '../context/AppContext';
@@ -46,10 +46,10 @@ function Quiz() {
     return error ? <ErrorView /> : (
         <div className={classes.Quiz}>
             <h2>{currentQuestion.category}</h2>
-            <div className={classes.question}>
+            <Card className={classes.question}>
                 <p dangerouslySetInnerHTML={{ __html: sanitize(currentQuestion.question) }} />
-                <p>{currentQuestionIndex + 1} / {quizItems.length}</p>
-            </div>
+            </Card>
+            <p>{currentQuestionIndex + 1} / {quizItems.length}</p>
             <div className={classes.userAnswer}>
                 <Button onClick={() => processUserAnswer(true)} variant="primary">True</Button>
                 <Button onClick={() => processUserAnswer(false)} variant="secondary">False</Button>
