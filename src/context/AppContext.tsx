@@ -7,7 +7,8 @@ export enum ActionTypes {
   FETCH_QUESTIONS_FULFILLED = "FETCH_QUESTIONS_FULFILLED",
   FETCH_QUESTIONS_REJECTED = "FETCH_QUESTIONS_REJECTED",
   SET_CURRENT_QUESTION = "SET_CURRENT_QUESTION",
-  PROCESS_USER_ANSWER = "PROCESS_USER_ANSWER"
+  PROCESS_USER_ANSWER = "PROCESS_USER_ANSWER",
+  RESET_GAME_TO_PLAY_AGAIN = "RESET_GAME_TO_PLAY_AGAIN"
 }
 
 export interface AppState {
@@ -43,6 +44,14 @@ const reducer = (state: AppState, action: Action) => {
       return { ...state, currentQuestionIndex: action.payload as number };
     case ActionTypes.FETCH_QUESTIONS_REJECTED:
       return { ...state, loading: false, error: action.payload as Error };
+    case ActionTypes.RESET_GAME_TO_PLAY_AGAIN:
+      return {
+        ...state,
+        quizItems: [],
+        currentQuestionIndex: 0,
+        loading: false,
+        error: null
+      };
     default:
       return state;
   }

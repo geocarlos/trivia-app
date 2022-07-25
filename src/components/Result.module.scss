@@ -8,6 +8,15 @@
     width: 100%;
     color: #535353;
 
+    .playAgainBtn {
+        display: flex;
+        width: fit-content;
+        margin: auto;
+        position: sticky;
+        bottom: .5rem;
+        align-self: flex-end;
+    }
+
     h2 {
         width: 100%;
     }

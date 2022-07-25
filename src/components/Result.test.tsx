@@ -39,4 +39,14 @@ describe('Result', () => {
         expect(element).toBeInTheDocument();
     });
 
+    test('renders button for user to play again', () => {
+        const { getByText } = render(<AppContext.Provider value={{ state: mockState, dispatch: jest.fn() }}>
+            <BrowserRouter>
+                <Result />
+            </BrowserRouter>
+        </AppContext.Provider>);
+        const element = getByText(/play again\?/i);
+        expect(element).toBeInTheDocument();
+    });
+
 })

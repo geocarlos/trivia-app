@@ -23,7 +23,7 @@ function Home() {
             </p>
             <p>Can you score 100%?</p>
             <div className={classes.beginButton}>
-                <Button onClick={beginQuiz} role="button" variant="primary">BEGIN</Button>
+                <Button onClick={beginQuiz} role="button" variant="primary">Begin</Button>
             </div>
         </div>
     );

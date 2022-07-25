@@ -22,6 +22,6 @@ describe('Home', () => {
     test('renders a button with text BEGIN', async () => {
         const { findByRole } = render(<AppContextProvider><Home /></AppContextProvider> );
         const button = await findByRole('button');
-        expect(button).toHaveTextContent('BEGIN');
+        expect(button).toHaveTextContent(/begin/i);
     });
 });
