@@ -18,7 +18,6 @@ const mockState: AppState = {
 };
 
 describe('Result', () => {
-
     test('renders result screen', () => {
         const { getByText } = render(<AppContext.Provider value={{ state: mockState, dispatch: jest.fn() }}>
             <BrowserRouter>
@@ -48,5 +47,4 @@ describe('Result', () => {
         const element = getByText(/play again\?/i);
         expect(element).toBeInTheDocument();
     });
-
 })

@@ -26,7 +26,6 @@ const mockState: AppState = {
 };
 
 describe('Quiz', () => {
-
     test('renders quiz screen', () => {
         const { getByText } = render(<AppContext.Provider value={{ state: mockState, dispatch: jest.fn() }}>
             <BrowserRouter>
@@ -46,5 +45,4 @@ describe('Quiz', () => {
         const linkElement = getByText(/1 \/ 2/i);
         expect(linkElement).toBeInTheDocument();
     });
-
 })

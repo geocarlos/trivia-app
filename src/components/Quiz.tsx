@@ -3,10 +3,11 @@ import { Button } from 'react-bootstrap';
 import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import sanitize from 'sanitize-html';
 import { ActionTypes, AppContext } from '../context/AppContext';
+import ErrorView from './ErrorView';
 import classes from './Quiz.module.scss';
 
 function Quiz() {
-    const { dispatch, state: { currentQuestionIndex, quizItems } } = useContext(AppContext);
+    const { dispatch, state: { currentQuestionIndex, quizItems, error } } = useContext(AppContext);
     const currentQuestion = quizItems[currentQuestionIndex];
 
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ function Quiz() {
         return <Navigate to="/" replace />
     }
 
-    return (
+    return error ? <ErrorView /> : (
         <div className={classes.Quiz}>
             <h2>{currentQuestion.category}</h2>
             <div className={classes.question}>
